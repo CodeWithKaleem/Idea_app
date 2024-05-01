@@ -46,6 +46,21 @@ def create_idea():
         return 'id is missing',400
     except:
         return "Some internal server error",500
+    
+'''
+End point to fetch idea based on idea id
+'''
+@app.get("/IdeaApp/api/v1/ideas/<idea_id>")
+def get_idea_id(idea_id):
+    try:
+        if int(idea_id) in ideas:
+            return ideas[int(idea_id)],200
+        else:
+            return 'idea id is not present',400
+
+    except:
+        return "Some internal error occured",500
+
 
 if __name__ == '__main__':
     app.run(port=8080)
