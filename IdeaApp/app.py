@@ -23,6 +23,15 @@ Create a Restful endpoint for fetching all the ideas
 
 @app.get("/IdeaApp/api/v1/ideas")
 def get_all_idea():
+    # I need to read the query param
+    idea_name  = request.args.get("idea_name")
+    if idea_name:
+        idea_res = {}
+        # Now i need to filter the ideas created by this author
+        for key,value in ideas.items():
+            if value['idea_name']== idea_name:
+                idea_res[key]= value
+        return idea_res
     return ideas
 
 '''
@@ -65,3 +74,4 @@ def get_idea_id(idea_id):
 if __name__ == '__main__':
     app.run(port=8080)
 
+# we have to start the video from 2'hours':09'minutes'
