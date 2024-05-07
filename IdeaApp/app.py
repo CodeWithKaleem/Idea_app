@@ -102,4 +102,3 @@ def delete_idea(idea_id):
 if __name__ == '__main__':
     app.run(port=8080)
 
-# we have to start the video from 2'hours':09'minutes'
